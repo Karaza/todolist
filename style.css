@@ -1,0 +1,194 @@
+/* General */
+:root {
+  --primary: #3f5efb;
+  --secondary: #fc466b;
+  --bg: #f6f6f6;
+}
+
+body {
+  background: linear-gradient(90deg, var(--secondary) 0%, var(--primary) 100%);
+  font-family: 'Open Sans', sans-serif;
+}
+
+.center {
+  text-align: center;
+}
+
+/* Container */
+main {
+  display: flex;
+  width: 100%;
+  min-width: 300px;
+  justify-content: center;
+}
+
+/* ToDo List */
+.todo-list {
+  background: white;
+  padding: 1rem 2rem;
+  width: 500px;
+  margin-top: 1rem;
+  border-radius: 1rem;
+}
+
+@media (max-width: 576px) {
+  .todo-list {
+    width: 260px;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Title */
+.todo-header {
+  color: var(--primary);
+  text-align: center;
+}
+
+.list-title {
+  margin: 0 1rem 0 0;
+}
+
+/* Progress Bar */
+.progress-bar {
+  border: 1px solid #000;
+  border-radius: 0.75rem;
+  min-height: 1rem;
+  margin-top: 1rem;
+}
+
+.tasks-progress {
+  min-height: 1rem;
+  width: 0;
+  transition: width 0.5s;
+  border-radius: 0.75rem;
+  background-color: var(--secondary);
+}
+
+.tasks-completion {
+  text-align: right;
+  margin-bottom: 0.5rem;
+}
+
+/* Congrats animation */
+.congrats {
+  background: white;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  opacity: 0;
+  z-index: -1;
+}
+
+.fade-in-and-out {
+  opacity: 1;
+  z-index: 2;
+  transition: opacity 1s ease-in;
+}
+
+/* Tasks list */
+.todo-body {
+  position: relative;
+}
+
+.tasks {
+  list-style-type: none;
+}
+
+/* Checkboxes */
+[type='checkbox'] {
+  opacity: 0;
+  position: absolute;
+}
+
+.task label {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+}
+
+.task {
+  position: relative;
+  margin: 0 0 1.25rem 0.05rem;
+}
+
+.task::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: -0.5rem;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.1;
+}
+
+.custom-checkbox {
+  --size: 0.75rem;
+  display: inline-block;
+  width: var(--size);
+  height: var(--size);
+  margin-right: var(--size);
+  cursor: pointer;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  transform: scale(1);
+  transition: transform 300ms ease-in-out;
+}
+
+.task:hover .custom-checkbox,
+[type='checkbox']:focus + label .custom-checkbox {
+  transform: scale(1.2);
+  color: var(--primary);
+}
+
+[type='checkbox']:checked + label .custom-checkbox {
+  background: var(--primary);
+  border-color: var(--primary);
+  box-shadow: inset 0 0 0px 2px white;
+}
+
+[type='checkbox']:checked + label {
+  opacity: 0.5;
+}
+
+.task label::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  left: 1.5rem;
+  top: 50%;
+  height: 3px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 150ms ease-in-out;
+}
+
+[type='checkbox']:checked + label::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Button */
+.btn {
+  cursor: pointer;
+  background: transparent;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--secondary);
+  color: var(--secondary);
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 2rem 0 1rem;
+  border-radius: 0.75rem;
+}
+
+.btn.reset {
+  transition: 250ms ease-in;
+}
+
+.btn.reset:hover {
+  background: var(--secondary);
+  color: white;
+}

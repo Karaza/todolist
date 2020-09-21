@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Business Revolution ToDo List</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <main>
+      <div class="todo-list" data-list-display-container>
+        <div class="todo-header">
+          <h1 class="todo-title">ToDo List</h1>
+          <div class="progress-bar">
+            <div class="tasks-progress" data-list-progress></div>
+          </div>
+          <div class="tasks-completion" data-list-completion>0%</div>
+        </div>
+
+        <div class="todo-body">
+          <div class="congrats" data-congrats>
+            <img src="congrats.gif" alt="" />
+            <p>Tâches complétées ! Félicitations !</p>
+          </div>
+
+          <div class="tasks" data-tasks></div>
+
+          <div class="center">
+            <button class="btn reset" data-reset-list>Reset</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <template id="task-template">
+      <div class="task">
+        <input type="checkbox" />
+        <label>
+          <span class="custom-checkbox"></span>
+        </label>
+      </div>
+    </template>
+  </body>
+</html>
